@@ -1,0 +1,40 @@
+[req]
+default_bits           = 2048
+default_md             = sha256
+encrypt_key            = no
+prompt                 = no
+distinguished_name     = subject
+req_extensions         = req_ext
+x509_extensions        = x509_ext
+
+[ subject ]
+C                      = US
+ST                     = New York
+L                      = New York City
+O                      = Worker
+OU                     = Worker
+emailAddress           = support@icpipeline.com
+CN                     = localhost
+
+[ req_ext ]
+subjectKeyIdentifier   = hash
+basicConstraints       = CA:FALSE
+keyUsage               = digitalSignature, keyEncipherment
+extendedKeyUsage       = serverAuth, clientAuth
+subjectAltName         = @alternate_names
+nsComment              = "Self-Signed SSL Certificate"
+
+[ x509_ext ]
+subjectKeyIdentifier   = hash
+authorityKeyIdentifier = keyid,issuer
+basicConstraints       = CA:FALSE
+keyUsage               = digitalSignature, keyEncipherment
+extendedKeyUsage       = serverAuth, clientAuth
+subjectAltName         = @alternate_names
+nsComment              = "Self-Signed SSL Certificate"
+
+[ alternate_names ]
+DNS.1                  = localhost
+DNS.2                  = icpipeline.com
+DNS.3                  = www.icpipeline.com
+IP.1                   = 127.0.0.1
