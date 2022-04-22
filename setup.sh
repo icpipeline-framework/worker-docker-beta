@@ -104,7 +104,10 @@ sudo -u icpipeline openssl req -config /home/icpipeline/cert/openssl.cnf \
 # **** END TTYD setup
 
 # set uplink repo dynamically to respect git_repo_suffix
-uplink_repo_url="https://github.com/icpipeline-framework/uplink${GIT_REPO_SUFFIX}.git"
+# uplink_repo_url="https://github.com/icpipeline-framework/uplink${GIT_REPO_SUFFIX}.git"
+
+# DR hard-coding uplink GH link to beta...
+uplink_repo_url="https://github.com/icpipeline-framework/uplink-beta.git"
 
 # clone ICPWorker codebase as icpipeline user who should own the assets
 sudo -u icpipeline git clone "${uplink_repo_url}"
